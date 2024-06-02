@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomcat-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ABC-App
+  template:
+    metadata:
+      labels:
+        app: ABC-App
+    spec:
+      containers:
+        - name: ABCApp
+          image: ABC-App
+          ports:
+            - containerPort: 8080
